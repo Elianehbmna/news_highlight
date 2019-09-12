@@ -1,8 +1,9 @@
 import os
 
 class Config:
-    pass
-
+ SOURCE_BASE_URL ='https://newsapi.org/v2/sources?language=en&category={}&apiKey={}'
+ ARTICLES_BASE_URL = 'https://newsapi.org/v2/everything?language=en&sources={}&apiKey={}'
+ SOURCE_API_KEY  = os.environ.get('SOURCE_API_KEY ')
 
 class ProdConfig(Config):
     pass
