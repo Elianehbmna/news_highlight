@@ -8,7 +8,36 @@
         <title> Welcome to the best Movie Review website </title>
         {% endif %}
     </head>
-    <body>
+   
+        <body>
+            <!-- Popular movie -->
+        <h3> Business news</h3>
+        <ul>
+           {% for source in sources %}
+               <li>{{ source.name}}</li>
+           {% endfor %}
+       </ul>
 
-    </body>
+       <!-- Upcoming movie  -->
+       <h3> Sports news </h3>
+        <ul>
+           {% for sports_source in sports_sources %}
+               <li>{{ sports_source.name}}</li>
+           {% endfor %}
+       </ul>
+       <!-- Now showing movie -->
+       <h3>Technology news</h3>
+        <ul>
+           {% for technology_source in technology_sources %}
+               <li>{{ technology_source.name}}</li>
+           {% endfor %}
+       </ul>
+       <h3>Entertainment news</h3>
+        <ul>
+           {% for entertainment_source in entertainment_sources %}
+               <li>{{ entertainment_source.name}}</li>
+           {% endfor %}
+       </ul>
+     </body>
+    
 </html>
