@@ -4,22 +4,32 @@
 {% block content %}
 
             <!-- Popular movie -->
-        <h3> All news</h3>
+            <div class="text-center">
+        <h3><srtrong>Business news</srtrong> </h3>
+        </div>
         <ul>
             {{ macro.displayNewsList(sources)}}
        </ul>
 
        <!-- Upcoming movie  -->
-       <h3> Sports news </h3>
+       <div class="text-center">
+       <h3> <srtrong>Sports news</srtrong> </h3>
+    </div>
+
         <ul>
             {{ macro.displayNewsList(sports_sources)}}
        </ul>
        <!-- Now showing movie -->
-       <h3>Technology news</h3>
+       <div class="text-center">
+       <h3><srtrong>Technology news</srtrong></h3>
+    </div>
+
         <ul>
             {{ macro.displayNewsList(technology_sources)}}
-       </ul>
-       <h3>Entertainment news</h3>
+       </ul> 
+       <div class="text-center">
+       <h3><srtrong>Entertainment news</srtrong></h3>
+    </div>
         <ul>
             {{ macro.displayNewsList(entertainment_sources)}}
        </ul>
