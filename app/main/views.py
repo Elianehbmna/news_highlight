@@ -33,8 +33,9 @@ def articles(id):
     print(id)
     articles = get_articles(id)
     # print(articles)
-    title = f'NH | {id}'
+    title = f'News Highlighter | {id}'
 
+    
     return render_template('articles.html',title= title,articles = articles)
 
 @main.route('/search/<topic_news>')
