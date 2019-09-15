@@ -8,10 +8,14 @@
       <hr>
       {% for news in news_topics %}
       <div class="col-md-4">
+            <div class="panel panel-default">
+                    <div class="panel-body">
            <h3>{{ news.author}}</h3>
              
-           <p>{{ news.description}}</p>
+           <p>{{ news.description | truncate(70)}}</p>
            <a href="{{news.url}}" class="btn btn-info">Read More</a>
+           </div>
+           </div>
        </div>
        {% endfor %}
     </div>

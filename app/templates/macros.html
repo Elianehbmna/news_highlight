@@ -1,20 +1,27 @@
 {% macro displayNewsList(news_list) %}
+<div class="container">
 <div class="row">
-    {% for news in news_list%}
-   
-    <div class="col-md-3  ">
+  {% for news in news_list %}
+    
+        <div class="col-md-4">
+                
+            <div class="panel panel-default">
+            <div class="panel-body">
         <p>
-               {{ news.description }}
+               {{ news.description | truncate(70) }}
         </p>
             
-            <li class="text-center">
+            
                     <!-- <a href="/news/{{news.id}}"> -->
-                    <a href="{{url_for('main.articles', id=news.id)}}">
+                    <a href="{{url_for('main.articles', id=news.id)}}" class="btn btn-info">
 
-                    {{ news.name|truncate(10)}}</a>
-                </li>
+                    {{ news.name|truncate(100)}}</a>
+                    
         <!-- <li>{{ news.name}}</li> -->
         </div>
+        </div>
+        </div>
     {% endfor %}
-</div>
+       </div>
+    </div>
 {% endmacro %}
