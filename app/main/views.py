@@ -1,4 +1,4 @@
-from flask import render_template
+from flask import render_template,request,redirect,url_for
 from . import main
 from ..requests import get_sources,get_articles,search_news
 from ..models import Sources
@@ -16,7 +16,13 @@ def index():
     entertainment_sources = get_sources('entertainment')
     # print(sources)
     title = "News Highlighter"
-    return render_template('index.html',title = title, sources = sources,sports_sources = sports_sources,technology_sources = technology_sources,entertainment_sources = entertainment_sources)
+    search_news = request.args.get('news_query')
+
+
+    if search_news:
+        return redirect(url_for('main.search',topic_news = search_news))
+    else:
+        return render_template('index.html',title = title, sources = sources,sports_sources = sports_sources,technology_sources = technology_sources,entertainment_sources = entertainment_sources)
 
 @main.route('/news/<id>')
 def articles(id):
@@ -39,12 +45,6 @@ def search(topic_news):
 
     news_name_list = topic_news.split(' ')
     news_name_format = '+'.join(news_name_list)
-    searched_topics = get_topic(news_name_format)
+    searched_topics = search_news(news_name_format)
     title = f'search results for {topic_news}'
-
-    search_news = request.args.get('news_query')
-
-    if search_news:
-        return redirect(url_for('main.search',topic_news = search_news))
-    else:
-        return render_template('search.html',news_topics = searched_topics, t =topic_news,title=title)
+    return render_template('search.html',news_topics = searched_topics, t =topic_news,title=title)

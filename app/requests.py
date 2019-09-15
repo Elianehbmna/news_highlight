@@ -47,10 +47,10 @@ def search_news(topic_news):
 
         if search_news_response['articles']:
             search_news_list = search_news_response['articles']
-            search_news_results = process_topic_results(search_news_list)
+            search_news_results = process_sources(search_news_list)
 
     return search_news_results
-    
+   
 def process_sources(sources_list):
 	'''
 	Function that processes the news sources results and turns them into  objects
