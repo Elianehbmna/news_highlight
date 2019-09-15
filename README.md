@@ -1,5 +1,5 @@
 # News Highlights
-passwrdLocker is an application which help us to save our credentials to avoid forgetting then
+an application that will help people list and preview news articles from various sources.   
 ## Author
 Names:Habimana Eliane
 ## Description
