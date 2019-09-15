@@ -1,6 +1,6 @@
 from flask import render_template
 from . import main
-from ..requests import get_sources,get_articles
+from ..requests import get_sources,get_articles,search_news
 from ..models import Sources
 
 # Views
@@ -30,3 +30,21 @@ def articles(id):
     title = f'NH | {id}'
 
     return render_template('articles.html',title= title,articles = articles)
+
+@main.route('/search/<topic_news>')
+def search(topic_news):
+    '''
+    View function to display the search results
+    '''
+
+    news_name_list = topic_news.split(' ')
+    news_name_format = '+'.join(news_name_list)
+    searched_topics = get_topic(news_name_format)
+    title = f'search results for {topic_news}'
+
+    search_news = request.args.get('news_query')
+
+    if search_news:
+        return redirect(url_for('main.search',topic_news = search_news))
+    else:
+        return render_template('search.html',news_topics = searched_topics, t =topic_news,title=title)
